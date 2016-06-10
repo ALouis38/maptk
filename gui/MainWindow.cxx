@@ -43,6 +43,7 @@
 #include "Project.h"
 #include "DepthMapPaths.h"
 #include "vtkMaptkCamera.h"
+#include "LaunchPlaneSweepView.h"
 
 #include <maptk/match_matrix.h>
 #include <maptk/version.h>
@@ -271,6 +272,10 @@ public:
 
   QQueue<int> orphanImages;
   QQueue<int> orphanCameras;
+
+  QString krtdFolder;
+  QString landmarksFile;
+  QString framesFolder;
 };
 
 QTE_IMPLEMENT_D_FUNC(MainWindow)
@@ -661,6 +666,9 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags)
   connect(d->UI.worldView, SIGNAL(updateThresholds(double,double,double,double)),
           this, SLOT(updateThresholdsDepthmapView(double,double,double,double)));
 
+  connect(d->UI.actionPlaneSweepLib, SIGNAL(triggered(bool)),
+          this, SLOT(showComputeDepthmaps()));
+
   this->setSlideDelay(d->UI.slideDelay->value());
 
   // Set up UI persistence and restore previous state
@@ -820,6 +828,10 @@ void MainWindow::loadProject(QString const& path)
     d->UI.worldView->loadVolume(project.volumePath,d->cameras.size(), project.volumeKrtdFile,
       project.volumeVtiFile);
   }
+
+  d->krtdFolder = project.cameraPath;
+  d->landmarksFile = project.landmarks;
+  d->framesFolder = project.frameListPath;
 
   d->UI.worldView->resetView();
 }
@@ -1301,20 +1313,18 @@ void MainWindow::showMatchMatrix()
   }
 }
 
-//-----------------------------------------------------------------------------
-//void MainWindow::showDepthMapView()
-//{
-//  QTE_D();
+void MainWindow::showComputeDepthmaps()
+{
+  QTE_D();
 
-//  if (d->tracks)
-//  {
-//    //TODO: searching into right folder if there's a depthmap to show
+  auto window = new LaunchPlaneSweepView();
 
-//    // Show window
-//    auto window = new DepthMapViewWindow();
-//    window->show();
-//  }
-//}
+  window->setKrtdFolder(d->krtdFolder.toStdString());
+  window->setFrameList(d->framesFolder.toStdString());
+  window->setLandmarksFile(d->landmarksFile.toStdString());
+
+  window->show();
+}
 
 //-----------------------------------------------------------------------------
 void MainWindow::setViewBackroundColor()

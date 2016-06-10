@@ -58,6 +58,7 @@ MeshColoration::MeshColoration(vtkPolyData* mesh, std::string frameList, std::st
   //this->OutputMesh->DeepCopy(mesh);
 
   this->frameList = help::ExtractAllFilePath(frameList.c_str());
+  std::cout << "krtdFolder = " << krtdFolder.c_str() << std::endl;
   this->krtdFolder = help::ExtractAllKRTDFilePath(krtdFolder.c_str(), frameList.c_str());
   if (this->krtdFolder.size() < frameList.size())
     {

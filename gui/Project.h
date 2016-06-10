@@ -39,6 +39,7 @@ struct Project
   bool read(QString const& path);
 
   QStringList images;
+  QString frameListPath;
   QString cameraPath;
   QString volumePath;
 

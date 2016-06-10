@@ -119,13 +119,13 @@ namespace help
     {
       std::getline(container, path);
       // only get the file name, not the whole path
-      std::vector <std::string> elems;
-      help::SplitString(path, ' ', elems);
+//      std::vector <std::string> elems;
+//      help::SplitString(path, ' ', elems);
       std::vector <std::string> filename;
-      help::SplitString(elems[elems.size() - 1], '/', filename);
+      help::SplitString(path, '/', filename);
 
       // check if there are an empty line
-      if (elems.size() == 0)
+      if (filename.size() == 0)
       {
         continue;
       }

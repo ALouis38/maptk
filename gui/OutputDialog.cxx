@@ -1,5 +1,5 @@
 /*ckwg +29
- * Copyright 2016 by Kitware, Inc.
+ * Copyright 2015 by Kitware, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,77 +28,74 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef MAPTK_MAINWINDOW_H_
-#define MAPTK_MAINWINDOW_H_
+#include "OutputDialog.h"
 
-#include <qtGlobal.h>
+#include "ui_OutputDialog.h"
 
-#include <QMainWindow>
+#include <qtGradient.h>
+#include <qtIndexRange.h>
+#include <qtUiState.h>
+#include <qtUiStateItem.h>
+#include <stdio.h>
+#include <QProcess>
 
-class MainWindowPrivate;
+//BEGIN OutputDialogPrivate
 
-class MainWindow : public QMainWindow
+//-----------------------------------------------------------------------------
+class OutputDialogPrivate
 {
-  Q_OBJECT
-
 public:
-  explicit MainWindow(QWidget* parent = 0, Qt::WindowFlags flags = 0);
-  virtual ~MainWindow();
 
-  void start(char* path);
+  Ui::OutputDialog UI;
+  qtUiState uiState;
 
-public slots:
-  void openFile();
-  void openFile(QString const& path);
-  void openFiles(QStringList const& paths);
-
-  void loadProject(QString const& path);
-  void loadImage(QString const& path);
-  void loadCamera(QString const& path);
-  void loadTracks(QString const& path);
-  void loadLandmarks(QString const& path);
-  void loadDepthmaps(QString const& path);
-
-  void saveCameras();
-  void saveCameras(QString const& path);
-  void saveLandmarks();
-  void saveLandmarks(QString const& path);
-
-  void enableSaveMesh(bool state);
-  void enableSaveColoredMesh(bool state);
-
-  void updateThresholdsDepthmapView(double bcMin,double bcMax,double urMin,double urMax);
-
-  void saveMesh();
-  void saveVolume();
-  void saveColoredMesh();
-
-  void setActiveCamera(int);
-
-  void setViewBackroundColor();
-
-  void showMatchMatrix();
-
-  void showComputeDepthmaps();
-
-  void showAboutDialog();
-  void showUserManual();
-
-protected slots:
-  void setSlideDelay(int);
-  void setSlideshowPlaying(bool);
-  void nextSlide();
-
-  void executeTool(QObject*);
-  void acceptToolResults();
-
-//  void updateDepthMap();
-
-private:
-  QTE_DECLARE_PRIVATE_RPTR(MainWindow)
-  QTE_DECLARE_PRIVATE(MainWindow)
-
-  QTE_DISABLE_COPY(MainWindow)
+  QProcess *psl;
 };
 
-#endif
+QTE_IMPLEMENT_D_FUNC(OutputDialog)
+
+
+//END OutputDialogPrivate
+
+
+//BEGIN OutputDialog
+
+//-----------------------------------------------------------------------------
+OutputDialog::OutputDialog(QWidget* parent, Qt::WindowFlags flags)
+  : QDialog(parent, flags), d_ptr(new OutputDialogPrivate)
+{
+  QTE_D();
+
+  this->setAttribute(Qt::WA_DeleteOnClose);
+  // Set up UI
+  d->UI.setupUi(this);
+
+  // Set up signals/slots
+
+}
+
+//-----------------------------------------------------------------------------
+OutputDialog::~OutputDialog()
+{
+  QTE_D();
+  d->uiState.save();
+}
+
+//-----------------------------------------------------------------------------
+void OutputDialog::setOutputToDisplay(QProcess *process)
+{
+  QTE_D();
+
+  d->psl = process;
+}
+
+void OutputDialog::ouputPSL()
+{
+  QTE_D();
+
+    QString outputText(d->psl->readAll());
+    d->UI.plainTextEdit->appendPlainText(outputText);
+}
+
+
+//END OutputDialog
