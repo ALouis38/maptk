@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LaunchCDIReconstruction</class>
+ <widget class="QWidget" name="LaunchCDIReconstruction">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>632</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="4" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxRayDelta">
+     <property name="decimals">
+      <number>3</number>
+     </property>
+     <property name="value">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="configField" stdset="0">
+      <string>--rayDelta</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Thickness</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecX</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxRayThick">
+     <property name="decimals">
+      <number>3</number>
+     </property>
+     <property name="value">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="configField" stdset="0">
+      <string>--rayThick</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_16">
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="configField" stdset="0">
+      <string>--threshBestCost</string>
+     </property>
+    </widget>
+   </item>
+   <item row="19" column="0">
+    <widget class="QLabel" name="label_16">
+     <property name="text">
+      <string>Outputs files name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Eta</string>
+     </property>
+    </widget>
+   </item>
+   <item row="20" column="3">
+    <widget class="QPushButton" name="pushButtonCompute">
+     <property name="text">
+      <string>Compute</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="text">
+      <string>X Vector</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+     <property name="value">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecY</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecY</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_15">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridEnd</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="pushButtonExplore">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_12">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridOrigin</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_10">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridOrigin</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0">
+    <widget class="QLabel" name="label_12">
+     <property name="text">
+      <string>End</string>
+     </property>
+    </widget>
+   </item>
+   <item row="17" column="0">
+    <widget class="QLabel" name="label_17">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Inputs/Outputs Parameters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Delta</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_13">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridEnd</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecY</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="text">
+      <string>Y Vector</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_9">
+     <property name="value">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecZ</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="20" column="4">
+    <widget class="QPushButton" name="pushButtonStop">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <widget class="QLabel" name="label_13">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Thresholds Parameters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ray Parameters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>Dimensions</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+     <property name="value">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecX</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_14">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridEnd</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Grid Parameters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecZ</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_11">
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridOrigin</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0">
+    <widget class="QLabel" name="label_11">
+     <property name="text">
+      <string>Origin</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Rho</string>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="0">
+    <widget class="QLabel" name="label_15">
+     <property name="text">
+      <string>Contour</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2">
+    <widget class="QSpinBox" name="spinBox">
+     <property name="maximum">
+      <number>2000</number>
+     </property>
+     <property name="value">
+      <number>350</number>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridDims</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0">
+    <widget class="QLabel" name="label_10">
+     <property name="text">
+      <string>Z Vector</string>
+     </property>
+    </widget>
+   </item>
+   <item row="19" column="1" colspan="4">
+    <widget class="QLineEdit" name="lineEditOutputsName">
+     <property name="text">
+      <string>reconstructed_mesh</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="4">
+    <widget class="QSpinBox" name="spinBox_3">
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+     <property name="value">
+      <number>350</number>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridDims</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="3">
+    <widget class="QSpinBox" name="spinBox_2">
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+     <property name="value">
+      <number>350</number>
+     </property>
+     <property name="configFieldPart" stdset="0">
+      <string>--gridDims</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxRayRho">
+     <property name="decimals">
+      <number>3</number>
+     </property>
+     <property name="value">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="configField" stdset="0">
+      <string>--rayRho</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecX</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxRayEta">
+     <property name="decimals">
+      <number>3</number>
+     </property>
+     <property name="value">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="configField" stdset="0">
+      <string>--rayEta</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_18">
+     <property name="text">
+      <string>Reconstruction executable path</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0">
+    <widget class="QLabel" name="label_14">
+     <property name="text">
+      <string>Best Cost Threshold</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+     <property name="configFieldPart" stdset="0">
+      <string>--gridVecZ</string>
+     </property>
+     <property name="Part" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="1" colspan="4">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_17">
+     <property name="configField" stdset="0">
+      <string>--contour</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="3">
+    <widget class="QLineEdit" name="lineEditReconstructionPath"/>
+   </item>
+   <item row="18" column="0">
+    <widget class="QLabel" name="label_19">
+     <property name="text">
+      <string>Input Depthmaps Folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="18" column="4">
+    <widget class="QPushButton" name="pushButtonExploreDM">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="18" column="1" colspan="3">
+    <widget class="QLineEdit" name="lineEditDMPath">
+     <property name="configField" stdset="0">
+      <string>--dataFolder</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
