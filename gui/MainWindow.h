@@ -80,6 +80,7 @@ public slots:
   void showMatchMatrix();
 
   void showComputeDepthmaps();
+  void showCudaDepthmapIntegrationReconstruction();
 
   void showAboutDialog();
   void showUserManual();

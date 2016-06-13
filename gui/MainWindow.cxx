@@ -44,6 +44,7 @@
 #include "DepthMapPaths.h"
 #include "vtkMaptkCamera.h"
 #include "LaunchPlaneSweepView.h"
+#include "LaunchCDIReconstruction.h"
 
 #include <maptk/match_matrix.h>
 #include <maptk/version.h>
@@ -668,6 +669,9 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags)
 
   connect(d->UI.actionPlaneSweepLib, SIGNAL(triggered(bool)),
           this, SLOT(showComputeDepthmaps()));
+
+  connect(d->UI.actionCudaDepthmapIntegrationReconstruction, SIGNAL(triggered(bool)),
+          this, SLOT(showCudaDepthmapIntegrationReconstruction()));
 
   this->setSlideDelay(d->UI.slideDelay->value());
 
@@ -1322,6 +1326,15 @@ void MainWindow::showComputeDepthmaps()
   window->setKrtdFolder(d->krtdFolder.toStdString());
   window->setFrameList(d->framesFolder.toStdString());
   window->setLandmarksFile(d->landmarksFile.toStdString());
+
+  window->show();
+}
+
+void MainWindow::showCudaDepthmapIntegrationReconstruction()
+{
+  QTE_D();
+
+  auto window = new LaunchCDIReconstruction();
 
   window->show();
 }

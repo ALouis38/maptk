@@ -73,7 +73,14 @@
      </property>
      <addaction name="actionPlaneSweepLib"/>
     </widget>
+    <widget class="QMenu" name="menuReconstruction">
+     <property name="title">
+      <string>Reconstruction...</string>
+     </property>
+     <addaction name="actionCudaDepthmapIntegrationReconstruction"/>
+    </widget>
     <addaction name="menuDepthmaps"/>
+    <addaction name="menuReconstruction"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuCompute"/>
@@ -332,6 +339,11 @@
   <action name="actionPlaneSweepLib">
    <property name="text">
     <string>Plane Sweep Lib</string>
+   </property>
+  </action>
+  <action name="actionCudaDepthmapIntegrationReconstruction">
+   <property name="text">
+    <string>Cuda Depthmap Integration Reconstruction</string>
    </property>
   </action>
  </widget>

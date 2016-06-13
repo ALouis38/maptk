@@ -46,6 +46,7 @@ set(gui_ui
   ColorizeSurfaceOptions.ui
   VolumeOptions.ui
   LaunchPlaneSweepView.ui
+  LaunchCDIReconstruction.ui
 )
 
 set(gui_resources
@@ -82,6 +83,7 @@ set(gui_moc_headers
   tools/Helper.h
   tools/ReconstructionData.h
   LaunchPlaneSweepView.h
+  LaunchCDIReconstruction.h
 )
 
 set(gui_sources
@@ -119,6 +121,8 @@ set(gui_sources
   tools/MeshColoration.cxx
   tools/ReconstructionData.cxx
   LaunchPlaneSweepView.cxx
+  LaunchCDIReconstruction.cxx
+
 )
 
 maptk_use_appdata(
